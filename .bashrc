@@ -4,7 +4,7 @@
 
 # ble.sh
 # Add this lines at the top of .bashrc:
-[[ $- == *i* ]] && source $HOME/.local/share/blesh/ble.sh --noattach
+[[ $- == *i* ]] && [[ -f $HOME/.local/share/blesh/ble.sh ]] && source $HOME/.local/share/blesh/ble.sh --noattach
 
 # If not running interactively, don't do anything
 case $- in
@@ -136,5 +136,8 @@ dotstore() { find . -depth \( -name "$1" -o -path "./$1*" \) -not -path "*/.dotf
 [[ ! ${BLE_VERSION-} ]] || ble-attach
 
 # atuin
-. "$HOME/.atuin/bin/env"
-eval "$(atuin init bash)"
+if [[ -f $HOME/.local/share/blesh/ble.sh ]] && [[ -f $HOME/.atuin/bin/env ]]; then {
+	. "$HOME/.atuin/bin/env"
+	eval "$(atuin init bash)"
+}
+fi
