@@ -2,7 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-#blesh
+# ble.sh
 # Add this lines at the top of .bashrc:
 [[ $- == *i* ]] && source $HOME/.local/share/blesh/ble.sh --noattach
 
@@ -120,7 +120,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#dont run old docker
+# dont run old docker
 alias docker-compose='docker compose'
 
 export NVM_DIR="$HOME/.nvm"
@@ -131,10 +131,10 @@ export NVM_DIR="$HOME/.nvm"
 # This function makes it easier to add dotfiles to the .dotfolder
 dotstore() { find . -depth \( -name "$1" -o -path "./$1*" \) -not -path "*/.dotfolder/*" -print | cpio -pvd .dotfolder ; }
 
-#blesh
+# ble.sh
 # Add this line at the end of .bashrc:
 [[ ! ${BLE_VERSION-} ]] || ble-attach
 
-#atuin
+# atuin
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init bash)"
