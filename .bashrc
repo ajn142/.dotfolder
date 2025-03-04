@@ -20,6 +20,9 @@
 # alias cp='cp -i'
 # alias mv='mv -i'
 
+# Local/machine-specific .bashrc includes
+[[ -f $HOME/.bashrc-local ]] && . $HOME/.bashrc-local
+
 # ble.sh
 [[ ! ${BLE_VERSION-} ]] || ble-attach
 
@@ -29,6 +32,3 @@ if [[ -f $HOME/.local/share/blesh/ble.sh ]] && [[ -f $HOME/.atuin/bin/env ]]; th
         eval "$(atuin init bash)"
 }
 fi
-
-# Local/machine-specific .bashrc includes
-[[ -f $HOME/.bashrc-local ]] && . $HOME/.bashrc-local
