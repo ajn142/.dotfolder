@@ -2,9 +2,20 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Shellcheck
+# Disable checks that cause significant issues in code that comes from default .bashrc
+# ShellCheck can't follow non-constant source. Use a directive to specify location.
+# shellcheck disable=SC1090
+# Not following: dotsourced file was not specified as input.
+# shellcheck disable=SC1091
+# Known remaining issues:
+# SC2148 Ln 1, Col 1 tips depend on shebang. Add `#!/usr/bin/env bash` as first line to temporarily resolve, but don't leave it because that may impact functionality.
+# SC2015 Ln 90, Col 26 Note that A && B || C is not if-then-else. C may run when A is true. This is original logic, I don't understand intent enough to modify.
+
+
 # ble.sh
 # Add this lines at the top of .bashrc:
-[[ $- == *i* ]] && [[ -f $HOME/.local/share/blesh/ble.sh ]] && source $HOME/.local/share/blesh/ble.sh --noattach
+[[ $- == *i* ]] && [[ -f "$HOME/.local/share/blesh/ble.sh" ]] && source "$HOME/.local/share/blesh/ble.sh" --noattach
 
 # If not running interactively, don't do anything
 case $- in
