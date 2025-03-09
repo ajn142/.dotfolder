@@ -7,8 +7,9 @@
 Using these dotfiles (a work in progress):
 
 0. (Optional) Fork the repo so you control your files.
-1. Clone the repo (I recommend via git)
-2. Use gnu `stow` to symlink the files into your home directory
+1. Make sure that required packages are installed (assuming debian-based) `sudo apt install git stow`.
+3. Clone the repo (I recommend via ssh if you have keys configured).
+4. Use gnu `stow` to symlink the files into your home directory.
 `stow -vnR . #dry-run`
 `stow -vR . #actually deploy`
-3. (Optional) Install things like ble.sh and atuin.sh to take advantage of the things I did in the dotfiles.
+5. (Optional) Install things like ble.sh and atuin.sh to take advantage of the things I did in the dotfiles.
