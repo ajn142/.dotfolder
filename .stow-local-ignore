@@ -23,4 +23,5 @@ _darcs
 ^/COPYING
 
 # My additions
-.*\.template
+.*\.template # templates for config files that should be copied up manually and modified
+no-link # directory for items i dont wanna link e.g. setup scripts
