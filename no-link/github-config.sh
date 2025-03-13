@@ -28,3 +28,7 @@ git remote set-url origin git@github.com:ajn142/.dotfolder.git
 # logout of gh cli and remove PAT
 gh auth logout
 rm ~/.dotfolder/no-link/github_pat.txt
+
+# start ssh-agent and add the key
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/github_$(hostname)_ed25519
