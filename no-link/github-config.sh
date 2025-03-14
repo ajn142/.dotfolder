@@ -13,6 +13,8 @@
 # set up an ssh key locally with no passphrase (will extend later)
 ssh-keygen -t ed25519 -C "GitHub key for $(whoami)@$(hostname)" -f $HOME/.ssh/github_ed25519
 
+# add the PAT to a file
+vim -c "1 s/^/Delete this line, insert your GitHub PAT, and save\/exit" ~/.dotfolder/no-link/github_pat.txt
 
 # log into github with PAT
 gh auth login --with-token < ~/.dotfolder/no-link/github_pat.txt
