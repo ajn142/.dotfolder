@@ -11,15 +11,15 @@
 
 
 # set up an ssh key locally with no passphrase (will extend later)
-ssh-keygen -t ed25519 -C "GitHub key for $(whoami)@$(hostname)" -N "" -f $HOME/.ssh/github_$(hostname)_ed25519
+ssh-keygen -t ed25519 -C "GitHub key for $(whoami)@$(hostname)" -f $HOME/.ssh/github_ed25519
 
 
 # log into github with PAT
 gh auth login --with-token < ~/.dotfolder/no-link/github_pat.txt
 
 # upload key to github for both signing and authentication using cli
-gh ssh-key add ~/.ssh/github_$(hostname)_ed25519.pub --title "$(whoami)@$(hostname)" --type signing
-gh ssh-key add ~/.ssh/github_$(hostname)_ed25519.pub --title "$(whoami)@$(hostname)" --type authentication
+gh ssh-key add ~/.ssh/github_ed25519.pub --title "$(whoami)@$(hostname)" --type signing
+gh ssh-key add ~/.ssh/github_ed25519.pub --title "$(whoami)@$(hostname)" --type authentication
 
 # convert remote ref on .dotfolder repo to use git
 cd ~/.dotfolder
@@ -29,6 +29,5 @@ git remote set-url origin git@github.com:ajn142/.dotfolder.git
 gh auth logout
 rm ~/.dotfolder/no-link/github_pat.txt
 
-# start ssh-agent and add the key
-eval $(ssh-agent -s)
-ssh-add ~/.ssh/github_$(hostname)_ed25519
+# test configuration
+ssh -T git@github.com

@@ -1,15 +1,2 @@
-[user]
-  signingkey = [key goes here]
-
-[gpg]
-  format = ssh
-
 [gpg "ssh"]
   program = [1Password ssh agent goes here or delete this section]
-
-[commit]
-  gpgsign = true
-
-[tag]
-  gpgsign=true
-
